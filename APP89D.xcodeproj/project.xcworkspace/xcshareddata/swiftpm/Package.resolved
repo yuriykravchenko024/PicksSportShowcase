@@ -1,0 +1,24 @@
+{
+  "originHash" : "79d04f6ab07ad652ee592a8e6248a7fcb8c3b86345c21e34778ff36b338ab5b1",
+  "pins" : [
+    {
+      "identity" : "flagsmith-ios-client",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/Flagsmith/flagsmith-ios-client.git",
+      "state" : {
+        "revision" : "56e62da513032f58aa85fd57a5eccd0288a0fd9e",
+        "version" : "3.8.1"
+      }
+    },
+    {
+      "identity" : "pushexpress-swift-sdk",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/pushexpress/pushexpress-swift-sdk",
+      "state" : {
+        "branch" : "main",
+        "revision" : "5c5bb30553adb1f4aedbdeb840497bcceb0445da"
+      }
+    }
+  ],
+  "version" : 3
+}

@@ -1,0 +1,6 @@
+framework module Pods_APP89D {
+  umbrella header "Pods-APP89D-umbrella.h"
+
+  export *
+  module * { export * }
+}
