@@ -4,22 +4,34 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        showGame()
+                
+        let backgroundImageView = UIImageView()
+        backgroundImageView.image = UIImage(named: "bg")
+        backgroundImageView.contentMode = .scaleAspectFill
+        backgroundImageView.frame = view.bounds
+        backgroundImageView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        backgroundImageView.translatesAutoresizingMaskIntoConstraints = false
+        view.insertSubview(backgroundImageView, at: 0)
     }
     
-    func showGame() {
-        let mainView = AppRoot()
-        let hostingController = UIHostingController(rootView: mainView)
-        addChild(hostingController)
-        view.addSubview(hostingController.view)
-        hostingController.didMove(toParent: self)
-        hostingController.view.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([
-            hostingController.view.topAnchor.constraint(equalTo: view.topAnchor),
-            hostingController.view.bottomAnchor.constraint(equalTo: view.bottomAnchor),
-            hostingController.view.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            hostingController.view.trailingAnchor.constraint(equalTo: view.trailingAnchor)
-        ])
+    
+    func openApp() {
+        DispatchQueue.main.async {
+            let hostingController = UIHostingController(rootView: AppRoot())
+            self.setRootViewController(hostingController)
+        }
+    }
+    
+    func openWeb(stringURL: String) {
+        DispatchQueue.main.async {
+            let webView = PrivacyPolicyViewController(url: stringURL)
+            self.setRootViewController(webView)
+        }
+    }
+    
+    func setRootViewController(_ viewController: UIViewController) {
+        if let appDelegate = UIApplication.shared.delegate as? AppDelegate {
+            appDelegate.window?.rootViewController = viewController
+        }
     }
 }
-

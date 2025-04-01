@@ -1,6 +1,7 @@
 import SwiftUI
 
 struct AppRoot: View {
+    @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
     @State private var isLoading = true
     
     var body: some View {
@@ -20,7 +21,11 @@ struct AppRoot: View {
         }
         .dynamicTypeSize(.large)
         .buttonStyle(.plain)
-        .lockOrientation(.portrait)
         .animation(.default, value: isLoading)
+        .onAppear {
+            AppDelegate.orientationLock = .portrait
+            UIDevice.current.setValue(UIInterfaceOrientation.portrait.rawValue, forKey: "orientation")
+            UINavigationController.attemptRotationToDeviceOrientation()
+        }
     }
 }
