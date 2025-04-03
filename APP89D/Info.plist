@@ -10,5 +10,7 @@
 	<array>
 		<string>remote-notification</string>
 	</array>
+	<key>NSCameraUsageDescription</key>
+	<string>The app requires access to your camera so you can save your best sports moments.</string>
 </dict>
 </plist>
